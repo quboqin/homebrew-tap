@@ -5,46 +5,40 @@
 class Multica < Formula
   desc "Multica CLI — local agent runtime and management tool for the Multica platform"
   homepage "https://github.com/quboqin/multica"
-  version "0.8.0"
+  version "0.9.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/quboqin/multica/releases/download/v0.8.0/multica-cli-0.8.0-darwin-amd64.tar.gz"
-      sha256 "7d2af550de5ab544a8cb3d2c8ac546e9ee60f1d69ca7f2e5f9f3bbac2d9340bf"
+      url "https://github.com/quboqin/multica/releases/download/v0.9.0/multica-cli-0.9.0-darwin-amd64.tar.gz"
+      sha256 "1348759aef04761912afb30db34afed1e4c64b060ba586c6f19be5d5b54dfd24"
 
-      def install
+      define_method(:install) do
         bin.install "multica"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/quboqin/multica/releases/download/v0.8.0/multica-cli-0.8.0-darwin-arm64.tar.gz"
-      sha256 "00fdc9a4ce0703c3d2effd392827ab8027088f0637c63ef22378611f1e2e0b1a"
+      url "https://github.com/quboqin/multica/releases/download/v0.9.0/multica-cli-0.9.0-darwin-arm64.tar.gz"
+      sha256 "32ccaabe1a5c763bd8313109da968abc332a9371f87474fbf634795b2a9e11ce"
 
-      def install
+      define_method(:install) do
         bin.install "multica"
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/quboqin/multica/releases/download/v0.8.0/multica-cli-0.8.0-linux-amd64.tar.gz"
-        sha256 "a302bf948ffc7f1e8e41520dfdab17759f8cc10e7745c4ef6902975f00d4b90b"
-
-        def install
-          bin.install "multica"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quboqin/multica/releases/download/v0.9.0/multica-cli-0.9.0-linux-amd64.tar.gz"
+      sha256 "5587ca319217130ff2c8663a9e64bec680a6acc7b8185a7bbc634d40df7d314d"
+      define_method(:install) do
+        bin.install "multica"
       end
     end
-    if Hardware::CPU.arm?
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/quboqin/multica/releases/download/v0.8.0/multica-cli-0.8.0-linux-arm64.tar.gz"
-        sha256 "681c9a685207339bfee83cbd96d1ee88d86d547312bc6bdac9b1e88cec9ec4e3"
-
-        def install
-          bin.install "multica"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/quboqin/multica/releases/download/v0.9.0/multica-cli-0.9.0-linux-arm64.tar.gz"
+      sha256 "c1a7567b5789d3b73cb555c5ed0e03c2b65368040f4a435b6f95f9c8b958d7aa"
+      define_method(:install) do
+        bin.install "multica"
       end
     end
   end
